@@ -14,6 +14,3 @@ class Card:
     
     def get_point(self):
         return self.__point
-
-    def get_points(self):
-        print('hello')

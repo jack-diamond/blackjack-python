@@ -12,10 +12,8 @@ class Player:
         max_total = 0
 
         for card in self.hand:
-            points = card.getpoints()
-            min_total += points
-
-            m = 11 if card.get_point() == 'A' else card.get_points()
-            max_total += m
+            point = card.get_point()
+            min_total += point[1]
+            max_total += 11 if point[0] == 'A' else point[1]
 
         return min_total if max_total > 21 else max_total
