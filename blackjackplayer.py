@@ -1,7 +1,7 @@
 from player import Player
 
 
-class Dealer(Player):
+class BlackJackPlayer(Player):
 
     def __init__(self, n):
         super().__init__(n)
