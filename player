@@ -1,0 +1,21 @@
+class Player:
+
+    def __init__(self, n: str):
+        self.__name = n
+        self.hand = []
+
+    def get_name(self):
+        return self.__name
+
+    def get_player_points(self):
+        min_total = 0
+        max_total = 0
+
+        for card in self.hand:
+            points = card.getpoints()
+            min_total += points
+
+            m = 11 if card.get_point() == 'A' else card.get_points()
+            max_total += m
+
+        return min_total if max_total > 21 else max_total

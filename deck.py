@@ -20,5 +20,13 @@ class Deck:
     def shuffle(self):
         random.shuffle(self.cards)
 
+    def remove_card(self):
+        if len(self.cards) == 0:
+            print('No more cards!')
+            return
+        top_card = self.cards.pop[-1]
+        return top_card
+
+
 d = Deck()
 print(d.cards)
