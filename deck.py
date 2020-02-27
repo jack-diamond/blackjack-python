@@ -24,9 +24,5 @@ class Deck:
         if len(self.cards) == 0:
             print('No more cards!')
             return
-        top_card = self.cards.pop[-1]
+        top_card = self.cards.pop()
         return top_card
-
-
-d = Deck()
-print(d.cards)

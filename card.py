@@ -14,3 +14,6 @@ class Card:
     
     def get_point(self):
         return self.__point
+
+    def get_card_value(self):
+        return self.get_point()[0] + ' - ' + self.get_suit()
