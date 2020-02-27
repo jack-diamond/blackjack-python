@@ -7,6 +7,9 @@ class Player:
     def get_name(self):
         return self.__name
 
+    def add_card(self, card):
+        self.hand.append(card)
+
     def get_player_points(self):
         min_total = 0
         max_total = 0
