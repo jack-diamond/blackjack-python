@@ -12,7 +12,8 @@ feasible unit tests for this class. This classes is responsible for taking input
 giving the dealer or player cards, determining if game is over, and showing the winner.
 
 Deck:
-The Deck class holds the cards in the deck
+The Deck class holds all the cards in the deck. It is also holds all possible suits and points.
+It contains methods to create a deck, shuffle a deck, and remove the top card from the deck.
 
 Card:
 The Card is responsible for holding the value and suit of a particular card.

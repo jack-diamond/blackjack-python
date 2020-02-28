@@ -7,10 +7,12 @@ from dealer import Dealer
 class TestCanPlay(unittest.TestCase):
 
     def test_can_play_on_empty(self):
+        """ Function coverage """
         dealer = Dealer()
         self.assertTrue(dealer.can_play())
 
     def test_can_play_under_limit(self):
+        """ Branch coverage """
         dealer = Dealer()
         card1 = Card('Hearts', ('2', 2))
         card2 = Card('Hearts', ('3', 3))
@@ -19,6 +21,7 @@ class TestCanPlay(unittest.TestCase):
         self.assertTrue(dealer.can_play())
 
     def test_can_play_over_limit(self):
+        """ Branch coverage """
         dealer = Dealer()
         card1 = Card('Hearts', ('J', 10))
         card2 = Card('Hearts', ('3', 3))
