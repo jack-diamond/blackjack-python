@@ -3,7 +3,7 @@ from player import Player
 
 class BlackJackPlayer(Player):
 
-    def __init__(self, n):
+    def __init__(self, n='None'):
         super().__init__(n)
         self.wants_to_play = True
 

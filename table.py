@@ -7,10 +7,12 @@ from player import Player
 
 class Table:
 
-    def __init__(self, name: str):
+    def __init__(self, name='None'):
         self.player = BlackJackPlayer(name)
         self.dealer = Dealer('Oberyn')
         self.deck = Deck()
+        self.deck.create_deck()
+        self.deck.shuffle()
         self.hidden_card = None
         self.turns = []
 

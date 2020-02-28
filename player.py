@@ -1,6 +1,9 @@
+from card import Card
+
+
 class Player:
 
-    def __init__(self, n: str):
+    def __init__(self, n='None'):
         self.__name = n
         self.hand = []
 
@@ -8,7 +11,8 @@ class Player:
         return self.__name
 
     def add_card(self, card):
-        self.hand.append(card)
+        if isinstance(card, Card):
+            self.hand.append(card)
 
     def get_player_points(self):
         min_total = 0
