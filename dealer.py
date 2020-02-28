@@ -7,4 +7,4 @@ class Dealer(Player):
         super().__init__(n)
 
     def can_play(self):
-        return self.get_player_points() < 21
+        return self.get_player_points() <= 16

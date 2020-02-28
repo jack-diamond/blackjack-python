@@ -20,8 +20,14 @@ class Table:
         self.give_card(self.dealer, self.deck.remove_card())
         self.give_card(self.player, self.deck.remove_card())
 
-        while self.player.can_play() and not self.game_end():
-            self.give_card(self.player, self.deck.remove_card())
+        while self.player.can_play() and self.player.get_wants_to_play() and not self.game_end():
+            decision = input("Enter 'h' for hit or 's' for stand: ")
+            if decision == 'h':
+                self.give_card(self.player, self.deck.remove_card())
+            elif decision == 's':
+                self.player.stop_playing()
+            else:
+                print("Invalid input")
 
         if not self.game_end():
             self.give_card(self.dealer, self.hidden_card)
@@ -33,7 +39,8 @@ class Table:
     def give_card(self, p: Player, c: Card):
         self.turns.append((p, c))
         p.add_card(c)
-        print(p.get_name() + ' takes card ' + c.get_card_value() + ' for ' + str(c.get_point()[1]))
+        print(p.get_name() + ' takes card ' + c.get_card_value() + ' for '
+              + str(c.get_point()[1]) + '. Total = ' + str(p.get_player_points()))
 
     def game_end(self):
         if self.player.get_player_points() >= 21:
@@ -43,13 +50,13 @@ class Table:
         return False
 
     def show_winner(self):
-        if self.player.get_player_points() >= 21:
+        if self.player.get_player_points() > 21:
             print(self.player.get_name() + ' has lost. ' + str(self.player.get_player_points()) + ' > 21')
-        elif self.dealer.get_player_points() >= 21:
-            print(self.dealer.get_name() + ' has lost. ' + self.dealer.get_player_points() + ' > 21')
+        elif self.dealer.get_player_points() > 21:
+            print(self.dealer.get_name() + ' has lost. ' + str(self.dealer.get_player_points()) + ' > 21')
         else:
             winner = self.player if self.player.get_player_points() > self.dealer.get_player_points() else self.dealer
-            print(winner.get_name() + ' has won. ' + winner.get_player_points())
+            print(winner.get_name() + ' has won with ' + str(winner.get_player_points()) + ' points!')
 
 
 if __name__ == '__main__':
