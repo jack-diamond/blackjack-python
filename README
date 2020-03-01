@@ -5,6 +5,8 @@ Jack Diamond
 This is my blackjack game with unit tests and integration tests. The game has 6 classes:
 Table, Card, Deck, Player, Dealer, BlackJackPlayer.
 
+To start the game run ' python3 table.py '
+
 
 Table:
 The Table class is the driver and mirrors the integration testing, so there are no actual
